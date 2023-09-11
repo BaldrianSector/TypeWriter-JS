@@ -1,0 +1,39 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-family: 'Special Elite', cursive;
+}
+
+.main-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    justify-items: center;
+    align-items: center;
+
+    grid-template-areas: 
+    "A B"
+    "C C";
+}
+
+#btn1 {
+    grid-area: A;
+}
+
+#btn2 {
+    grid-area: B; 
+}
+
+#text {
+    grid-area: C;
+}
+
+button {
+    font-family: 'Special Elite', cursive;
+    size: 16px;
+    height: 4em;
+}
