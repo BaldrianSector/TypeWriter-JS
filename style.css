@@ -36,4 +36,5 @@ button {
     font-family: 'Special Elite', cursive;
     size: 16px;
     height: 4em;
+    border-radius: 0.4em;
 }
