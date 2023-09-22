@@ -7,22 +7,22 @@ const buttons = document.querySelectorAll('.btn');
 
 // Create an object to store interval IDs for each button
 const intervalIds = {};
-
 // Step 2: Add a click event listener to each button
 buttons.forEach(button => {
   button.addEventListener('click', function() {
     // Clear the previous interval for this button if it exists
-    if (intervalIds[button.textContent]) {
-      clearInterval(intervalIds[button.textContent]);
-    }
+    clearInterval(intervalIds[button.textContent]);
     
     // Your event handling code here
     console.log(`Button ${button.textContent} clicked!`);
-    typeWriter(text, button.textContent, typingInterval, button);
+    const intervalId = typeWriter(text, button.textContent, typingInterval, button);
+
+    // Store the intervalId for this button
+    intervalIds[button.textContent] = intervalId;
   });
 });
 
-const typingInterval = 50; // Adjust the typing speed as needed.
+const typingInterval = 65; // Adjust the typing speed as needed.
 
 function typeWriter(textElement, exampleText, interval, button) {
   let originalText = exampleText.split("");
@@ -34,14 +34,15 @@ function typeWriter(textElement, exampleText, interval, button) {
       textElement.innerHTML = typedText.join("");
     } else {
       clearInterval(intervalId);
-      // Store the intervalId for this button
-      intervalIds[button.textContent] = null;
     }
   }, interval);
 
-  // Store the intervalId for this button
-  intervalIds[button.textContent] = intervalId;
+  // Return the intervalId for this button
+  return intervalId;
 }
+
+
+
 
 // Pseudocode:
 
